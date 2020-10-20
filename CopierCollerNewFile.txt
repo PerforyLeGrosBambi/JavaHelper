@@ -1,0 +1,118 @@
+
+
+
+
+//créer un fichier
+
+File f = new File("test.txt");
+		
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+
+// écrire dans un fichier
+
+try {
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write("Votre texte");
+			bw.close();
+			bw.newLine();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+bw.newLine() pour sauter une ligne
+
+
+Et là pour éviter de recopier indéfiniment bw.newLine()
+
+String filtxt[] = {"Text1","Text2","Text3","Text4","Text5","Text6","Text7"};
+		int count = 0;
+		int loop = 1;
+		try {
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (loop = 0; loop < 6; loop++) {	
+				bw.write(filtxt[count]);
+				bw.newLine();
+				count++;
+			}
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+lire les lignes du fichier*
+Pour lire toutes les lignes du fichier
+try {
+			BufferedReader Br = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+			String line = Br.readLine();
+			
+			while(line != null) {
+				System.out.println(line);
+				line = Br.readLine();
+			} 
+			Br.close();
+			
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("Le Fichier n'existe Pas");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+Pour lire une ligne précise du fichier
+
+try {
+			BufferedReader Br = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+			String line = new String();
+			int FileLine = 1;
+			
+			for (FileLine = 1; FileLine < 10; FileLine++) {
+				if (FileLine == 3) {
+					System.out.println(Br.readLine());
+				} else {
+					Br.readLine();
+				}
+				
+				
+			}
+			
+			
+			Br.close();
+			
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("Le Fichier n'existe Pas");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+Copier un fichier
+
+File source = new File("C:\\EclipseWorkspace\\ZoneDeTest\\text.txt");
+		File dest = new File("C:\\EclipseWorkspace\\ZoneDeTest\\src\\text.txt");
+		try {
+			Files.copy(source.toPath(), dest.toPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
