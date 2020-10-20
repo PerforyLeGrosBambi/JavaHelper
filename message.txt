@@ -1,0 +1,161 @@
+package Code;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaException;
+
+public class main implements ActionListener {
+	
+	private JFrame frame;
+	public JButton bt1;
+	public JButton bt2;
+	public JButton bt3;
+	public JButton bt4;
+	public JButton bt5, bt6, bt7, bt8, bt9, bt10, bt11;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					main window = new main();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public main() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1000, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		
+		bt1 = new JButton("Nezuko run meme");
+		bt1.addActionListener(this);
+		bt1.setBounds(10, 10, 300, 50);
+		frame.add(bt1);
+		
+		bt2 = new JButton("Ameno");
+		bt2.addActionListener(this);
+		bt2.setBounds(310, 10, 300, 50);
+		frame.add(bt2);
+		
+		bt3 = new JButton("Hard Knock Life Complete");
+		bt3.addActionListener(this);
+		bt3.setBounds(610, 10, 300, 50);
+		frame.add(bt3);
+		
+		bt4 = new JButton("Hard Knock Life Court");
+		bt4.addActionListener(this);
+		bt4.setBounds(10, 60, 300, 50);
+		frame.add(bt4);
+		
+		bt5 = new JButton("Interstellar music court ");
+		bt5.addActionListener(this);
+		bt5.setBounds(310, 60, 300, 50);
+		frame.add(bt5);
+		
+		bt6 = new JButton("Parce que c'est notre projet");
+		bt6.addActionListener(this);
+		bt6.setBounds(610, 60, 300, 50);
+		frame.add(bt6);
+		
+		bt7 = new JButton("Mais quel connard ce type");
+		bt7.addActionListener(this);
+		bt7.setBounds(10, 110, 300, 50);
+		frame.add(bt7);
+		
+		bt8 = new JButton("Encore ça fait beacoup là non");
+		bt8.addActionListener(this);
+		bt8.setBounds(310, 110, 300, 50);
+		frame.add(bt8);
+		
+		bt9 = new JButton("Rire mexicain");
+		bt9.addActionListener(this);
+		bt9.setBounds(610, 110, 300, 50);
+		frame.add(bt9);
+		
+		bt10 = new JButton("Please God no");
+		bt10.addActionListener(this);
+		bt10.setBounds(10, 160, 300, 50);
+		frame.add(bt10);
+		
+		bt11 = new JButton("Nous Sommes en Guerre");
+		bt11.addActionListener(this);
+		bt11.setBounds(310, 160, 300, 50);
+		frame.add(bt11);
+	}
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();	
+		if (source == bt1) {
+			try {
+				AudioClip aC = new AudioClip(new File("NezRunMeme.mp3").toURI().toString());
+				aC.play();
+			} catch (MediaException e1) {
+				e1.printStackTrace();
+			}
+		}
+		if (source == bt2) {
+		
+			AudioClip aC2 = new AudioClip(new File("Ameno.mp3").toURI().toString());
+			aC2.play();
+		}
+		if (source == bt3) {
+			AudioClip aC3 = new AudioClip(new File("HKLComp.mp3").toURI().toString());
+			aC3.play();
+		}
+		if (source == bt4) {
+			AudioClip aC4 = new AudioClip(new File("HKLCourt.mp3").toURI().toString());
+			aC4.play();
+		}
+		if (source == bt5) {
+			AudioClip aC5 = new AudioClip(new File("Interstellarmusic2.mp3").toURI().toString());
+			aC5.play();
+		}
+		if (source == bt6) {
+			AudioClip aC6 = new AudioClip(new File("projet.mp3").toURI().toString());
+			aC6.play();
+		}
+		if (source == bt7) {
+			AudioClip aC7 = new AudioClip(new  File("connardtype.mp3").toURI().toString());
+			aC7.play();
+		}
+		if (source == bt8) {
+			AudioClip aC8 = new AudioClip(new File("encore.mp3").toURI().toString());
+			aC8.play();
+		}
+		if (source == bt9) {
+			AudioClip aC9 = new AudioClip(new File("rire.mp3").toURI().toString());
+			aC9.play();
+		}
+		if (source == bt10) {
+			AudioClip aC10 = new AudioClip(new File("NoGod.mp3").toURI().toString());
+			aC10.play();
+		}
+		if (source == bt11) {
+			AudioClip aC11 = new AudioClip(new File("GuerreSommes.mp3").toURI().toString());
+			aC11.play();
+		}
+		
+	}	
+}
